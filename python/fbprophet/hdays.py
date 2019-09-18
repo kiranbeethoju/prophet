@@ -243,6 +243,7 @@ class India(HolidayBase):
         # Hindo holidays
         #     Diwali
         #     Holi
+        #     Dassara (Vaijayadashami)
         # --------------------------------
 
         # Diwali, Holi
@@ -253,54 +254,80 @@ class India(HolidayBase):
         warnings.warn(warning_msg, Warning)
         name1 = "Diwali"
         name2 = "Holi"
+        name3 = "Dassara"
+        
         if year == 2010:
             self[date(year, 12, 5)] = name1
             self[date(year, 2, 28)] = name2
+            self[date(year, 10, 17)] = name3
+            
         elif year == 2011:
             self[date(year, 10, 26)] = name1
             self[date(year, 3, 19)] = name2
+            self[date(year, 10, 6)] = name3
+
         elif year == 2012:
             self[date(year, 11, 13)] = name1
             self[date(year, 3, 8)] = name2
+            self[date(year, 10, 24)] = name3
+            
         elif year == 2013:
             self[date(year, 11, 3)] = name1
             self[date(year, 3, 26)] = name2
+            self[date(year, 10, 13)] = name3
         elif year == 2014:
             self[date(year, 10, 23)] = name1
             self[date(year, 3, 17)] = name2
+            self[date(year, 10, 3)] = name3
+            
         elif year == 2015:
             self[date(year, 11, 11)] = name1
             self[date(year, 3, 6)] = name2
+            self[date(year, 10, 22)] = name3
+            
         elif year == 2016:
             self[date(year, 10, 30)] = name1
             self[date(year, 3, 24)] = name2
+            self[date(year, 10, 11)] = name3
+            
         elif year == 2017:
             self[date(year, 10, 19)] = name1
             self[date(year, 3, 13)] = name2
+            self[date(year, 9, 10)] = name3
         elif year == 2018:
             self[date(year, 11, 7)] = name1
             self[date(year, 3, 2)] = name2
+            self[date(year, 10, 19)] = name3
+            
         elif year == 2019:
             self[date(year, 10, 27)] = name1
             self[date(year, 3, 21)] = name2
+            self[date(year, 10, 8)] = name3
+            
         elif year == 2020:
             self[date(year, 11, 14)] = name1
             self[date(year, 3, 9)] = name2
+            self[date(year, 10, 25)] = name3
         elif year == 2021:
             self[date(year, 11, 4)] = name1
             self[date(year, 3, 28)] = name2
+            self[date(year, 10, 15)] = name3
         elif year == 2022:
             self[date(year, 10, 24)] = name1
             self[date(year, 3, 18)] = name2
+            self[date(year, 10, 4)] = name3
         elif year == 2023:
             self[date(year, 10, 12)] = name1
             self[date(year, 3, 7)] = name2
+            self[date(year, 10, 24)] = name3
         elif year == 2024:
             self[date(year, 11, 1)] = name1
             self[date(year, 3, 25)] = name2
+            self[date(year, 10, 12)] = name3
         elif year == 2025:
             self[date(year, 10, 21)] = name1
             self[date(year, 3, 14)] = name2
+            self[date(year, 10, 1)] = name3
         else:
             pass
 
@@ -351,36 +378,11 @@ class India(HolidayBase):
                 self[date(y, m, d)] = name
 
         # --------------------------------
-        # Christian holidays
-        #    New Year, Palm Sunday,
-        #    Maundy Thursday
+        # Official Christian holidays in India
         #    Good Friday
-        #    Easter Sunday
-        #    Feast of Pentecost
-        #    Fest of St. Theresa of Calcutta
-        #    Feast of the Blessed Virgin
-        #    All Saints Day
-        #    All Souls Day
         #    Christmas Day
         #    Boxing Day
-        #    Feast of Holy Family
         # --------------------------------
-        # New Year's Day
-        self[date(year, 1, 1)] = "New Year's Day"
-
-        # Palm Sunday
-        name = "Palm Sunday"
-        for offset in range(-1, 2, 1):
-            ds = easter(year + offset) - rd(days=7)
-            if ds.year == year:
-                self[ds] = name
-
-        # Maundy Thursday
-        name = "Maundy Thursday"
-        for offset in range(-1, 2, 1):
-            ds = easter(year + offset) - rd(days=3)
-            if ds.year == year:
-                self[ds] = name
 
         # Good Friday
         name = "Good Friday"
@@ -388,32 +390,6 @@ class India(HolidayBase):
             ds = easter(year + offset) - rd(days=2)
             if ds.year == year:
                 self[ds] = name
-
-        # Easter Sunday
-        name = "Easter Sunday"
-        for offset in range(-1, 2, 1):
-            ds = easter(year + offset)
-            if ds.year == year:
-                self[ds] = name
-
-        # Feast of Pentecost
-        name = "Feast of Pentecost"
-        for offset in range(-1, 2, 1):
-            ds = easter(year + offset) + rd(days=49)
-            if ds.year == year:
-                self[ds] = name
-
-        # Fest of St. Theresa of Calcutta
-        name = "Fest of St. Theresa of Calcutta"
-        self[date(year, 9, 5)] = name
-
-        # Feast of the Blessed Virgin
-        name = "Feast of the Blessed Virgin"
-        self[date(year, 9, 8)] = name
-
-        # All Saints Day
-        name = "All Saints Day"
-        self[date(year, 11, 1)] = name
 
         # All Souls Day
         name = "All Souls Day"
@@ -426,10 +402,6 @@ class India(HolidayBase):
         # Boxing Day
         name = "Boxing Day"
         self[date(year, 12, 26)] = name
-
-        # Feast of Holy Family
-        name = "Feast of Holy Family"
-        self[date(year, 12, 30)] = name
 
 
 class IN(India):
